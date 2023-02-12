@@ -15,12 +15,12 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class PessoaInfraRepository implements PessoaRepository {
-	private final PessoaSpringDataJPARepository pessoaSpringDataJPARepository;
+	private final PessoaSpringMongoRepository pessoaSpringMongoRepository;
 
 	@Override
 	public Pessoa salva(Pessoa pessoa) {
 		log.info("[inicia] PessoaInfraRepository - salva");
-		pessoaSpringDataJPARepository.save(pessoa);
+		pessoaSpringMongoRepository.save(pessoa);
 		log.info("[finaliza] PessoaInfraRepository - salva");
 		return pessoa;
 	}
@@ -28,7 +28,7 @@ public class PessoaInfraRepository implements PessoaRepository {
 	@Override
 	public List<Pessoa> listaPessoas() {
 		log.info("[inicia] PessoaInfraRepository - listaPessoas");
-		List<Pessoa> todasPessoas = pessoaSpringDataJPARepository.findAll();
+		List<Pessoa> todasPessoas = pessoaSpringMongoRepository.findAll();
 		log.info("[finaliza] PessoaInfraRepository - listaPessoas");
 		return todasPessoas;
 	}
@@ -36,7 +36,7 @@ public class PessoaInfraRepository implements PessoaRepository {
 	@Override
 	public Pessoa buscaPessoaAtravesId(UUID idPessoa) {
 		log.info("[inicia] PessoaInfraRepository - buscaPessoaAtravesId");
-		Pessoa pessoa = pessoaSpringDataJPARepository.findById(idPessoa)
+		Pessoa pessoa = pessoaSpringMongoRepository.findById(idPessoa)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Pessoa não encontrado"));
 		log.info("[finaliza] PessoaInfraRepository - buscaPessoaAtravesId");
 		return pessoa;

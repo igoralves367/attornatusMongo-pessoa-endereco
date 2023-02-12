@@ -3,29 +3,29 @@ package br.com.attornatus.pessoaendereco.endereco.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import br.com.attornatus.pessoaendereco.endereco.application.api.EnderecoRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Entity
+@Document(collection = "Endereco")
 public class Endereco {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idEndereco;
 	@NotNull
-	@Column(columnDefinition = "uuid", name = "idPessoa", nullable = false)
 	private UUID idPessoaCadastro;
 	@NotBlank
 	private String lagradouro;
@@ -35,11 +35,12 @@ public class Endereco {
 	private String numero;
 	@NotBlank
 	private String cidade;
-	private TipoEndereco tipoEndereco = TipoEndereco.PRINCIPAL;
+	private TipoEndereco tipoEndereco;
 	
 	private LocalDateTime dataHoraDoCadastro;
 	
 	public Endereco(UUID idPessoa, EnderecoRequest enderecoRequest) {
+		this.idEndereco = UUID.randomUUID();
 		this.idPessoaCadastro = idPessoa;
 		this.lagradouro = enderecoRequest.getLagradouro();
 		this.cep = enderecoRequest.getCep();

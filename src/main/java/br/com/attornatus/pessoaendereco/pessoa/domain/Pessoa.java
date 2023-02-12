@@ -4,28 +4,28 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaEditaRequest;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Entity
+@Document(collection = "Pessoa")
 public class Pessoa {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idPessoa;
 	@NotBlank
 	private String nomeCompleto;
@@ -36,6 +36,7 @@ public class Pessoa {
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
 	public Pessoa(PessoaRequest pessoaRequest) {
+		this.idPessoa = UUID.randomUUID();
 		this.nomeCompleto = pessoaRequest.getNomeCompleto();
 		this.dataNascimento = pessoaRequest.getDataNascimento();
 		this.dataHoraDoCadastro = LocalDateTime.now();

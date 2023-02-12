@@ -3,16 +3,11 @@ server:
     context-path: /pessoa-endereco/api
     
 spring:
-  datasource:
-    url: jdbc:h2:mem:demodb
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
-     
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: ${MONGO_DB_URI:mongodb+srv://attornatus:140665@attornatus.lfykhvp.mongodb.net/Attornatus?retryWrites=true&w=majority}
+      auto-index-creation: true 
 
 springdoc:
   swagger-ui:
