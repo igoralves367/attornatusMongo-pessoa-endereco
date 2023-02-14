@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "e8b34355-a150-442c-9daf-133abfd5d505",
+		"name": "Attornatus PROD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23094206"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Listar todas as Pessoas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/v1/pessoa",
+							"protocol": "http",
+							"host": [
+								"ec2-34-207-62-129",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-endereco",
+								"api",
+								"v1",
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar uma Pessoa pelo Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/v1/pessoa/80c97a42-2299-44a4-b712-dc72244d7e44",
+							"protocol": "http",
+							"host": [
+								"ec2-34-207-62-129",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-endereco",
+								"api",
+								"v1",
+								"pessoa",
+								"80c97a42-2299-44a4-b712-dc72244d7e44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Igor Alves\",\n  \"dataNascimento\": \"1997-03-06\"\n}"
+						},
+						"url": {
+							"raw": "http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/v1/pessoa",
+							"protocol": "http",
+							"host": [
+								"ec2-34-207-62-129",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-endereco",
+								"api",
+								"v1",
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar uma Pessoa pelo Id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Igor Alves de Jesus\",\n  \"dataNascimento\": \"1997-03-06\"\n}"
+						},
+						"url": {
+							"raw": "http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/v1/pessoa/80c97a42-2299-44a4-b712-dc72244d7e44",
+							"protocol": "http",
+							"host": [
+								"ec2-34-207-62-129",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-endereco",
+								"api",
+								"v1",
+								"pessoa",
+								"80c97a42-2299-44a4-b712-dc72244d7e44"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereço",
+			"item": [
+				{
+					"name": "Consultar Endereco da Pessoa pelo Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/v1/endereco/80c97a42-2299-44a4-b712-dc72244d7e44",
+							"protocol": "http",
+							"host": [
+								"ec2-34-207-62-129",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-endereco",
+								"api",
+								"v1",
+								"endereco",
+								"80c97a42-2299-44a4-b712-dc72244d7e44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Endereco da Pessoa pelo Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"lagradouro\": \"Rua Teofilo Ontino\",\n  \"cep\": \"45828290\",\n  \"numero\": \"312\",\n  \"cidade\": \"Eunapolis\",\n  \"tipoEndereco\": \"SECUNDARIO\"\n}"
+						},
+						"url": {
+							"raw": "http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/v1/endereco/80c97a42-2299-44a4-b712-dc72244d7e44",
+							"protocol": "http",
+							"host": [
+								"ec2-34-207-62-129",
+								"compute-1",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa-endereco",
+								"api",
+								"v1",
+								"endereco",
+								"80c97a42-2299-44a4-b712-dc72244d7e44"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
