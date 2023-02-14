@@ -12,3 +12,4 @@ spring:
 springdoc:
   swagger-ui:
     path: /public/swagger
+ 
