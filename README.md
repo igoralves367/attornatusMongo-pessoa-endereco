@@ -33,7 +33,7 @@ ou⬇️
 * > Pode acessar também o Swagger para fazer os testes da API diretamente da AWS através do link ⬇️:
  http://ec2-34-207-62-129.compute-1.amazonaws.com:8080/pessoa-endereco/api/public/swagger-ui/index.html#/
 #### OBS.: Link AWS online até sexta-feira 17/02/2023, caso precise olhar depois dessa data, favor entrar em contato comigo para eu reativar!
-#### Igor Alves - 73 99837-1107 WhatsApp
+#### Contato > Igor Alves - 73 99837-1107 WhatsApp
 
 
 ## 📋 Pré-requisitos
